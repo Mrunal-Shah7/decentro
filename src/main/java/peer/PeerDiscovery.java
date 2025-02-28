@@ -10,9 +10,11 @@ public class PeerDiscovery{
     private String peerId;
     private Set<String> activePeers = new HashSet<>();
 
+
     public PeerDiscovery(String peerId){
         this.peerId = peerId;
     }
+
 
     public synchronized void addPeer(String peerAddress){
         if(!peerAddress.equals(peerId)){
@@ -21,6 +23,8 @@ public class PeerDiscovery{
         }
     }
 
+
+
     public synchronized void removePeer(String peerAddress){
         activePeers.remove(peerAddress);
         System.out.println("Peer with address "+peerAddress+" disconnected from the network");
@@ -28,7 +32,7 @@ public class PeerDiscovery{
 
 
 
-    private boolean isPeerAlive(String ipAdress){
+    public boolean isPeerAlive(String ipAdress){
         try{
             Socket socket = new Socket();
             socket.connect(new InetSocketAddress(ipAdress,8080),3000);
