@@ -7,11 +7,16 @@ import java.util.List;
 
 public class Peer {
     private String peerId;
+    //private String name;
     private PeerDiscovery peerDiscovery;
+    private PeerServer peerServer;
+    private FileSharder fileSharder;
 
     public Peer(String peerId){
         this.peerId = peerId;
         this.peerDiscovery = new PeerDiscovery(peerId);
+        this.peerServer = new PeerServer(peerId);
+        this.fileSharder = new FileSharder(this.peerDiscovery);
     }
 
     public String getPeerId(){
@@ -20,18 +25,40 @@ public class Peer {
 
     public void start(){
         peerDiscovery.start();
+        peerServer.start();
+
     }
 
     public void addKnownPeer(String peerAddress){
         peerDiscovery.addPeer(peerAddress);
     }
 
+    public void uploadFile(String filePath){
+        try {
+            File file = new File(filePath);
+            if (!file.exists()) {
+                System.out.println("File not found at path:" + filePath);
+            }
 
-    public static void main(String[] args) throws Exception{
-        Peer myPeer = new Peer(InetAddress.getLocalHost().getHostAddress());
-        System.out.println(myPeer.getPeerId());
+            List<File> shards = fileSharder.splitFile(file);
+            fileSharder.distributeShards(shards);
 
-        System.out.println(myPeer.peerDiscovery.isPeerAlive("192.168.0.133"));
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+
+
+
+    public static void main(String[] args) {
+
+        //Testing logic
+
+        Peer peer1 = new Peer("192.168.0.151");
+
+
 
 
     }

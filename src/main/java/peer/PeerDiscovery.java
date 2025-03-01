@@ -32,10 +32,10 @@ public class PeerDiscovery{
 
 
 
-    public boolean isPeerAlive(String ipAdress){
+    private boolean isPeerAlive(String ipAdress){
         try{
             Socket socket = new Socket();
-            socket.connect(new InetSocketAddress(ipAdress,8080),3000);
+            socket.connect(new InetSocketAddress(ipAdress,5165),3000);
             if(socket.isConnected()){return true;}
             else{return false;}
         }catch (IOException e){

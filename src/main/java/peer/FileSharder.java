@@ -51,17 +51,18 @@ public class FileSharder {
         }
 
         Random random = new Random();
-        for(File shard:shards){
-            int index1 = random.nextInt(peers.size());
-            String peer1 = peers.get(index1);
-            int index2 = random.nextInt(peers.size());
-            while (true){
-                if(index1!=index2){
-                    break;
-                }
-            }
-            String peer2 = peers.get(index2);
+        for (File shard : shards) {
+            String peer1 = peers.get(random.nextInt(peers.size()));
+            String peer2;
+            do {
+                peer2 = peers.get(random.nextInt(peers.size()));
+            } while (peer1.equals(peer2));
+
+            ShardSender.sendShard(peer1,shard);
+            ShardSender.sendShard(peer2,shard);
+
             System.out.println("Shard:"+shard.getName() + "--> Peer 1:"+peer1+" Peer 2: "+peer2);
+
         }
 
 
