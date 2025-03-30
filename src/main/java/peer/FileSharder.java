@@ -46,7 +46,7 @@ public class FileSharder {
         List<String> peers = new ArrayList<>(peerDiscovery.getActivePeers());
 
         if(peers.size()<2){
-            System.out.println("Not enough peers for redudancy bruh");
+            System.out.println("Not enough peers for redundancy bruh");
             return;
         }
 

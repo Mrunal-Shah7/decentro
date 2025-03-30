@@ -52,17 +52,9 @@ public class Peer {
 
 
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws Exception{
         //Testing logic
-
-        Peer peer1 = new Peer("192.168.0.151");
-
-
-
-
+        Peer peer1 = new Peer(InetAddress.getLocalHost().getHostAddress());
+//        System.out.println(peer1.getPeerId());
     }
-
-
-
 }
