@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <server id="server0">
-        <ip>192.168.0.199</ip>
+        <ip>.....</ip>
         <port>9000</port>
     </server>
     <server id="server1">
-        <ip>192.168.0.199</ip>
+        <ip>.....</ip>
         <port>9001</port>
     </server>
     <server id="server2">
-        <ip>192.168.0.199</ip>
+        <ip>.....</ip>
         <port>9002</port>
     </server>
     <server id="server3">
-        <ip>192.168.0.199</ip>
+        <ip>.....</ip>
         <port>9003</port>
     </server>
     <server id="server4">
-        <ip>192.168.0.199</ip>
+        <ip>.....</ip>
         <port>9004</port>
     </server>
     <server id="server5">
-        <ip>192.168.0.199</ip>
+        <ip>.....</ip>
         <port>9005</port>
     </server>
     <server id="server6">
-        <ip>192.168.0.199</ip>
+        <ip>.....</ip>
         <port>9006</port>
     </server>
     <server id="server7">
-        <ip>192.168.0.199</ip>
+        <ip>.....</ip>
         <port>9007</port>
     </server>
 </configuration>
